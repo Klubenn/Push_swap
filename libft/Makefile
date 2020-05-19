@@ -6,7 +6,7 @@
 #    By: gtristan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/10 09:18:49 by gtristan          #+#    #+#              #
-#    Updated: 2020/01/22 15:01:00 by gtristan         ###   ########.fr        #
+#    Updated: 2020/05/19 17:02:25 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,6 @@ DEST = $(SOURCE:%.c=%.o)
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
-
 all: $(NAME)
 
 $(NAME): $(SOURCE) $(DEST)
@@ -40,7 +38,7 @@ $(NAME): $(SOURCE) $(DEST)
 	ranlib $(NAME)
 
 %.o: %.c
-	gcc $(FLAGS) -I $(INCLUDES)  -o $@ -c $<
+	gcc -I $(INCLUDES)  -o $@ -c $<
 
 clean:
 	rm -f $(DEST)

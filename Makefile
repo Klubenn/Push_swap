@@ -6,7 +6,7 @@
 #    By: gtristan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/17 13:58:43 by gtristan          #+#    #+#              #
-#    Updated: 2020/01/17 17:54:48 by gtristan         ###   ########.fr        #
+#    Updated: 2020/05/19 17:02:02 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,6 @@ SRC_PS = $(addprefix $(SRC_DIR),$(SRC_PS_C))
 SRC_CHECK = $(addprefix $(SRC_DIR),$(SRC_CHECK_C))
 SRC_SHARED = $(addprefix $(SRC_DIR),$(SRC_SHARED_C))
 
-FLAGS =	-Wall -Werror -Wextra
-
 all: $(LIBFT_DIR)$(LIBFT) $(PRINTF_DIR)$(PRINTF) $(NAME_PS) $(NAME_CHECK)
 
 $(LIBFT_DIR)$(LIBFT):
@@ -41,10 +39,10 @@ $(PRINTF_DIR)$(PRINTF):
 	make -C $(PRINTF_DIR)
 
 $(NAME_PS): $(SRC_PS) $(SRC_SHARED) $(INCL)
-	gcc $(FLAGS) $(SRC_PS) $(SRC_SHARED) -I$(INCL_DIR) -L$(LIBFT_DIR) -$(LIBFT) -L$(PRINTF_DIR) -$(PRINTF) -o $(NAME_PS)
+	gcc $(SRC_PS) $(SRC_SHARED) -I$(INCL_DIR) -L$(LIBFT_DIR) -$(LIBFT) -L$(PRINTF_DIR) -$(PRINTF) -o $(NAME_PS)
 
 $(NAME_CHECK): $(SRC_CHECK) $(SRC_SHARED) $(INCL)
-	gcc $(FLAGS) $(SRC_CHECK) $(SRC_SHARED) -I$(INCL_DIR) -L$(LIBFT_DIR) -$(LIBFT) -L$(PRINTF_DIR) -$(PRINTF) -o $(NAME_CHECK)
+	gcc $(SRC_CHECK) $(SRC_SHARED) -I$(INCL_DIR) -L$(LIBFT_DIR) -$(LIBFT) -L$(PRINTF_DIR) -$(PRINTF) -o $(NAME_CHECK)
 
 clean:
 	make clean -C $(LIBFT_DIR)

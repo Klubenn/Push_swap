@@ -6,13 +6,13 @@
 #    By: gtristan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/17 13:58:43 by gtristan          #+#    #+#              #
-#    Updated: 2020/01/17 17:54:48 by gtristan         ###   ########.fr        #
+#    Updated: 2020/05/19 17:02:45 by student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-INCL = includes/header_pf.h
+INCL = includes
 
 SRC_DIR = src/
 SRC_C = analysis.c decimal.c float2.c float4.c ft_printf.c parsing.c \
@@ -24,8 +24,6 @@ OBJ_DIR = obj/
 OBJ_O = $(SRC_C:%.c=%.o)
 OBJ = $(addprefix $(OBJ_DIR),$(OBJ_O))
 
-FLAGS =	-Wall -Werror -Wextra
-
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
@@ -36,7 +34,7 @@ $(NAME): $(SRC) $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc $(FLAGS) -I $(INCL) -o $@ -c $<
+	gcc -I $(INCL) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJ)

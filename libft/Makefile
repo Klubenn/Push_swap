@@ -31,6 +31,8 @@ DEST = $(SOURCE:%.c=%.o)
 
 NAME = libft.a
 
+FLAGS = -Wall -Wextra -Werror
+
 all: $(NAME)
 
 $(NAME): $(SOURCE) $(DEST)
@@ -38,7 +40,7 @@ $(NAME): $(SOURCE) $(DEST)
 	ranlib $(NAME)
 
 %.o: %.c
-	gcc -I $(INCLUDES)  -o $@ -c $<
+	gcc $(FLAGS) -I $(INCLUDES)  -o $@ -c $<
 
 clean:
 	rm -f $(DEST)

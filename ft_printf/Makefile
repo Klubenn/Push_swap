@@ -24,6 +24,8 @@ OBJ_DIR = obj/
 OBJ_O = $(SRC_C:%.c=%.o)
 OBJ = $(addprefix $(OBJ_DIR),$(OBJ_O))
 
+FLAGS = -Wall -Wextra -Werror
+
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
@@ -34,7 +36,7 @@ $(NAME): $(SRC) $(OBJ)
 	ranlib $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -I $(INCL) -o $@ -c $<
+	gcc $(FLAGS) -I $(INCL) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJ)

@@ -31,7 +31,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		if (src1[i] == a)
 		{
 			i++;
-			return (&(dst[i]));
+			dst = dst + i;
+			return (dst);
 		}
 		i++;
 	}

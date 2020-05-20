@@ -14,10 +14,8 @@
 
 int	ft_countwords(char *s)
 {
-	size_t	i;
 	size_t	j;
 
-	i = 0;
 	j = 0;
 	while (*s)
 	{
